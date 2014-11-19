@@ -1,0 +1,9 @@
+<h2>Welcome to Question Overflow</h2>
+
+<h4>List of flows:</h4>
+<ul>
+  <% @questions.each do |question| %>
+  <li><%= question.title %></li>
+  <!-- link to show page -->
+  <% end %>
+</ul>
