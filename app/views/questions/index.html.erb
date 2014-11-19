@@ -1,9 +1,13 @@
 <h2>Welcome to Question Overflow</h2>
 
+<h5><%= link_to "Create a new question", new_question_path %></h5>
+
 <h4>List of flows:</h4>
 <ul>
   <% @questions.each do |question| %>
-  <li><%= question.title %></li>
-  <!-- link to show page -->
+  <li>
+  <%= link_to question.title, question_path(question) %>
+  Votes: <%= question.vote_count %>
+  </li>
   <% end %>
 </ul>
