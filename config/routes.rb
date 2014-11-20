@@ -6,6 +6,10 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   resources :questions do
+    member do
+      post 'upvote'
+      post 'downvote'
+    end
     resources :answers
   end
 
