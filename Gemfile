@@ -30,7 +30,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'capybara'
   gem 'shoulda-matchers', require: false
-  gem 'factory_girl'
+  gem 'factory_girl_rails'
 end
 
 gem 'simplecov', :require => false, :group => :test
