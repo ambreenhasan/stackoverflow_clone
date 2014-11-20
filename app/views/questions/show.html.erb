@@ -6,4 +6,15 @@
 <%= link_to "Edit question", edit_question_path(@question) %>
 <%= link_to "Delete question", question_path(@question), method: :delete, data: { confirm: 'Are you sure?' } %>
 
+<h3>Answers</h3>
+<% @question.answers.each do |answer| %>
+<ul>
+  <li>Text: <%= answer.text %></li>
+</ul>
+<% end %>
+
+
+<h2>Add an answer</h2>
+<%= render "answers/form" %>
+
 <%= link_to "Back to index", questions_path %>
