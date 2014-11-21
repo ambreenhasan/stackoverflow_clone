@@ -1,0 +1,8 @@
+  <li>
+    <%= link_to content_tag(:i,nil, :class=>"fa fa-thumbs-up"), upvote_question_answer_path(@question, answer), :method => :post %>
+
+  <%= link_to content_tag(:i,nil, :class=>"fa fa-thumbs-down"), downvote_question_answer_path(@question, answer), :method => :post %>
+
+
+  <%= link_to answer.vote_count, question_path(@question), :method => :put %>
+    <%= answer.text %></li>

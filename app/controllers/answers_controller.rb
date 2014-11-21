@@ -15,8 +15,15 @@ class AnswersController < ApplicationController
   def create
      @question = Question.find(params[:question_id])
      @answer = @question.answers.create(answer_params)
-     if @answer.save
-        redirect_to question_path(@question)
+
+     respond_to do |format|
+       if @answer.save
+        format.html {redirect_to question_path(@question)}
+        format.js {render :create }
+       else
+        format.html {redirect_to question_path(@question)}
+        format.js {render :error }
+       end
      end
   end
 

@@ -1,5 +1,6 @@
 class QuestionsController < ApplicationController
   def index
+    @question = Question.new
     @questions = Question.all
   end
 
@@ -12,12 +13,17 @@ class QuestionsController < ApplicationController
   end
 
   def create
+    @questions = Question.all
     @question = Question.new(question_params)
 
-    if @question.save
-      redirect_to @question
-    else
-      render 'new'
+    respond_to do |format|
+      if @question.save
+        format.html {redirect_to root_path, notice: "Question successfully created"}
+        format.js {render :create}
+      else
+        format.html {redirect_to root_path}
+        format.js {render :error }
+      end
     end
   end
 
@@ -47,8 +53,14 @@ class QuestionsController < ApplicationController
 
     @question.upvote(@question.vote_count)
 
-    if @question.save
-      redirect_to questions_path
+    respond_to do |format|
+      if @question.save
+        format.html {redirect_to root_path, notice: "Question successfully created"}
+        format.js {render :upvote}
+      else
+        format.html {redirect_to root_path}
+        format.js {render :error }
+      end
     end
   end
 
@@ -57,8 +69,14 @@ class QuestionsController < ApplicationController
 
     @question.downvote(@question.vote_count)
 
-    if @question.save
-      redirect_to questions_path
+    respond_to do |format|
+      if @question.save
+        format.html {redirect_to root_path, notice: "Question successfully created"}
+        format.js {render :downvote}
+      else
+        format.html {redirect_to root_path}
+        format.js {render :error }
+      end
     end
   end
 

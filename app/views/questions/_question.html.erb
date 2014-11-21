@@ -1,0 +1,8 @@
+<li>
+<%= link_to content_tag(:i,nil, :class=>"fa fa-thumbs-up"), upvote_question_path(question), :method => :post %>
+
+   <%= link_to content_tag(:i,nil, :class=>"fa fa-thumbs-down"), downvote_question_path(question), :method => :post %>
+
+  <%= link_to question.title, question_path(question) %>
+  Total Votes: <%= link_to question.vote_count, question_path(question.id), :method => :put %>
+</li>
