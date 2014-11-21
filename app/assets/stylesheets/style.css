@@ -1,0 +1,13 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto);
+
+.main_font {
+ font-family: 'Roboto', sans-serif;
+}
+
+.title_color {
+  color: #ad141e;
+}
+
+.list {
+  list-style-type: none;
+}

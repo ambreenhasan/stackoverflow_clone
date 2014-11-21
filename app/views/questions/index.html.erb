@@ -1,13 +1,17 @@
-<h2>Welcome to Rant Overflow</h2>
-<h4>where things just suck.</h4>
+<div class="container row">
+  <header role="banner" class="row">
+    <h1 class="col span_8 title_color main_font">Welcome to Rant Overflow</h1>
+    <h5 class="row span_4"><%= ApplicationHelper::quote %></h5>
+  </header>
 
-<%= ApplicationHelper::quote %>
+
+
 
 <%= render 'form', question: @question %>
 
 
-<h4>List of flows:</h4>
-<ul id="questions">
+<h4>current rants:</h4>
+<ul class="list" id="questions">
   <% @questions.each do |question| %>
   <li>
     <%= link_to content_tag(:i,nil, :class=>"fa fa-thumbs-up"), upvote_question_path(question), :method => :post, :remote => true  %>
@@ -19,6 +23,6 @@
   </li>
   <% end %>
 </ul>
-
+</div>
 <div id="error_list">
 </div>
