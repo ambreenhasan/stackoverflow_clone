@@ -44,6 +44,9 @@ GEM
     coffee-script-source (1.8.0)
     diff-lcs (1.2.5)
     docile (1.1.5)
+    dotenv (1.0.2)
+    dotenv-rails (1.0.2)
+      dotenv (= 1.0.2)
     erubis (2.7.0)
     execjs (2.2.2)
     factory_girl (4.5.0)
@@ -54,6 +57,9 @@ GEM
     font-awesome-rails (4.2.0.0)
       railties (>= 3.2, < 5.0)
     hike (1.2.3)
+    httparty (0.13.3)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.6.11)
     jbuilder (2.2.5)
       activesupport (>= 3.0.0, < 5)
@@ -68,6 +74,7 @@ GEM
     mini_portile (0.6.1)
     minitest (5.4.3)
     multi_json (1.10.1)
+    multi_xml (0.5.5)
     nokogiri (1.6.4.1)
       mini_portile (~> 0.6.0)
     pg (0.17.1)
@@ -153,8 +160,10 @@ PLATFORMS
 DEPENDENCIES
   capybara
   coffee-rails (~> 4.0.0)
+  dotenv-rails
   factory_girl_rails
   font-awesome-rails
+  httparty
   jbuilder (~> 2.0)
   jquery-rails
   pg

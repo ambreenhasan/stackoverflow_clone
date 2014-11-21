@@ -22,11 +22,11 @@ class QuestionsController < ApplicationController
   end
 
   def edit
-     @question = Question.find(params[:id])
+     @question = Question.find(params[:question_id])
   end
 
   def update
-    @question = Question.find(params[:id])
+    @question = Question.find(params[:question_id])
 
     if @question.update(question_params)
       redirect_to @question
@@ -36,7 +36,7 @@ class QuestionsController < ApplicationController
   end
 
   def destroy
-    @question = Question.find(params[:id])
+    @question = Question.find(params[:question_id])
     @question.destroy
 
     redirect_to questions_path

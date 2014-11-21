@@ -10,7 +10,12 @@ Rails.application.routes.draw do
       post 'upvote'
       post 'downvote'
     end
-    resources :answers
+    resources :answers do
+      member do
+        post 'upvote'
+        post 'downvote'
+      end
+    end
   end
 
 

@@ -23,6 +23,7 @@ class AnswersController < ApplicationController
   def edit
     @question = Question.find(params[:question_id])
     @answer = @question.answers.find([:id])
+    Answer.where(question_id: params[:id])
   end
 
   def update
@@ -35,6 +36,31 @@ class AnswersController < ApplicationController
       render 'edit'
     end
   end
+
+
+  def upvote
+    p params
+    @question = Question.find(params[:question_id])
+    @answer = @question.answers.find(params[:id])
+
+    @answer.upvote(@answer.vote_count)
+
+    if @answer.save
+      redirect_to question_path(@question)
+    end
+  end
+
+   def downvote
+    @question = Question.find(params[:question_id])
+    @answer = @question.answers.find(params[:id])
+
+    @answer.downvote(@answer.vote_count)
+
+    if @answer.save
+      redirect_to question_path(@question)
+    end
+  end
+
 
   def delete
     @question = Question.find(params[:question_id])
